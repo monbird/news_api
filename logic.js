@@ -13,6 +13,7 @@ $(document).ready(function () {
             if ($('.navbar-toggler').is(':visible')) {  // first checks if hamburger menu is visible/present
                 $('.navbar-toggler').click();           // if it is then menu is hidden after the selection
             }
+            $('.tooltip').remove();         // removes tooltips after click
         });
       });
 

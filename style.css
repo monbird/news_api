@@ -40,6 +40,11 @@ header p {
     padding-bottom: 0;
 }
 
+.navbar-collapse {
+    max-height: 90vh;
+    overflow-y: auto;
+}
+
 button.navbar-toggler {
     margin-top: 10px;
     margin-bottom: 10px;
