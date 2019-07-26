@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+
+<html>
+
+<head>
+    <title>News API</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link rel="icon" type="image/png" href="./images/favicon.png">
+    <link href="https://fonts.googleapis.com/css?family=DM+Serif+Display|Playfair+Display|Oswald" rel="stylesheet">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <link href="style.css" rel="stylesheet" type="text/css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
+    <script src="./logic.js"></script>
+</head>
+
+<body>
+    <header>
+        <div class="logo">
+            <img src="./images/earth_img.jpg">
+            <h1>Earth</h1>
+        </div>
+        <p>... your latest news by country</p>
+    </header>
+
+    <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-center sticky-top">
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse justify-content-center" id="collapsibleNavbar">
+            <ul class="navbar-nav" id="navFlagsList">
+                <li class="nav-item">
+                    <a class="nav-link flag-icon" href="#" data-toggle="tooltip" title="United States"><img src="./images/flag_us.svg" id="us_flag"></a>
+                </li>
+                <li class="nav-item">
+                        </i><a class="nav-link flag-icon" href="#" data-toggle="tooltip" title="Japan"><img src="./images/flag_jp.svg" id="jp_flag"></a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link flag-icon" href="#" data-toggle="tooltip" title="France"><img src="./images/flag_fr.svg" id="fr_flag"></a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link flag-icon" href="#" data-toggle="tooltip" title="Poland"><img src="./images/flag_pl.svg" id="pl_flag"></a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link flag-icon" href="#" data-toggle="tooltip" title="Great Britain"><img src="./images/flag_gb.svg" id="gb_flag"></a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link flag-icon" href="#" data-toggle="tooltip" title="Italy"><img src="./images/flag_it.svg" id="it_flag"></a>
+                </li>
+                <li class="nav-item">
+                        <a class="nav-link flag-icon" href="#" data-toggle="tooltip" title="Egypt"><img src="./images/flag_eg.svg" id="eg_flag"></a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <main>
+        <div class="container">
+            <div class="card-columns" id="newsContainer"></div>
+        </div>
+    </main>
+
+    <footer>
+        <p>Developed by <a href="http://monbird.com/" target="_blank">Monbird</a> @ 2019.</p>
+        <p>Powered by <a href="https://newsapi.org/" target="_blank">News API.</a></p>
+    </footer>
+    
+</body>
+</html>
