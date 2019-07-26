@@ -8,6 +8,11 @@ $(document).ready(function () {
         var countryCode = id.substring(0, 2);
         $("#" + id).click(function () {
             fetchNews(countryCode);
+
+            // code responsible for closing the hamburger menu after user clicks the flag
+            if ($('.navbar-toggler').is(':visible')) {  // first checks if hamburger menu is visible/present
+                $('.navbar-toggler').click();           // if it is then menu is hidden after the selection
+            }
         });
       });
 

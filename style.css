@@ -36,7 +36,13 @@ header p {
 
 .navbar {
     background-color: rgb(0, 0, 0, 0.85) !important;
-    height: 75px;
+    padding-top: 0;
+    padding-bottom: 0;
+}
+
+button.navbar-toggler {
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
 
 #collapsibleNavbar {
@@ -134,6 +140,9 @@ footer p a:hover {
 @media (max-width: 768px) {
     .card-columns {
         column-count: 2;
+    }
+    ul#navFlagsList li {
+        width: 100%;
     }
 }
 
