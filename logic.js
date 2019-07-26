@@ -43,27 +43,32 @@ function fetchNews(countryCode) {
             url: "https://newsapi.org/v2/top-headlines?country=" + countryCode + "&apiKey=1b8423915d9c4caa8c5d2913325d7f01",
             success: function (result) {
                 replaceContent(result, countryCode);
+            },
+            error: function (xhr) {
+                displayError(xhr.status);
             }
         });
     }
 }
 
 function replaceContent(res, countryCode) {
-    $("#newsContainer").empty();
+    $("#newsContainer").empty();    // clears news from previous country
+    $(".error").remove();           // clears error message if present
     $(".flag-icon").removeClass("active");
 
     for(let i = 0; i < res.articles.length; i++) {
         var article = res.articles[i];
+        // konstruujemy kod html przy uzyciu jQuery ($ tutaj nie jest selektorem)
         var card = $('<div class="card">' +
-                '<img class="card-img-top image" src="" alt="news image">' +
-                '<div class="card-body">' +
-                    '<h5 class="card-title title"></h5>' +
-                    '<p class="card-text description"></p>' +
-                    '<p class="author"></p>' +
-                    '<p class="publicationDate"></p>' +
-                    '<a href="#" target="_blank" class="btn btn-secondary btn-block stretched-link moreButton">See more</a>' +
-                '</div>' +
-            '</div>');
+                        '<img class="card-img-top image" src="" alt="news image">' +
+                        '<div class="card-body">' +
+                            '<h5 class="card-title title"></h5>' +
+                            '<p class="card-text description"></p>' +
+                            '<p class="author"></p>' +
+                            '<p class="publicationDate"></p>' +
+                            '<a href="#" target="_blank" class="btn btn-secondary btn-block stretched-link moreButton">See more</a>' +
+                        '</div>' +
+                    '</div>');
 
         card.find('.image').attr("src", article.urlToImage);
         card.find('.title').text(article.title);
@@ -83,4 +88,17 @@ function replaceContent(res, countryCode) {
         $("#newsContainer").append(card);
         $("#" + countryCode + "_flag").parent().addClass("active");
     }
+}
+
+function displayError(errorCode) {
+
+    var errorMessage = $('<div class="error">' +
+                            '<h1>' + errorCode + '</h1>' +
+                            '<h2>Internal server error</h2>' +
+                            '<p>Sorry we couldn\'t fetch your news at the moment.</p>' +
+                            '<p>Please try again later.</p>' +
+                        '</div>');
+
+    $("#newsContainer").empty();    // clears news if present
+    $("#mainContainer").append(errorMessage);
 }

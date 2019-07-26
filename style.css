@@ -100,6 +100,24 @@ button.navbar-toggler {
     margin-bottom: 25px;
 }
 
+.error {
+    text-align: center;
+    display: block;
+    padding-bottom: 22vh;
+}
+
+.error h1 {
+    margin-bottom: 0;
+}
+
+.error h2 {
+    padding-bottom: 20px;
+}
+
+.error p {
+    line-height: 10px;
+}
+
  footer {
     text-align: center;
     background-color: rgb(0, 0, 0, 0.85);
