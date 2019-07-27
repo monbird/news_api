@@ -41,8 +41,7 @@ header p {
 }
 
 .navbar-collapse {
-    max-height: 90vh;
-    overflow-y: auto;
+    max-height: 89vh;
 }
 
 button.navbar-toggler {
@@ -172,5 +171,8 @@ footer p a:hover {
 @media (max-width: 576px) {
     .card-columns {
         column-count: 1;
+    }
+    .navbar-collapse {
+        overflow-y: auto;
     }
 }

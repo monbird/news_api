@@ -60,8 +60,8 @@ function replaceContent(res, countryCode) {
     for(let i = 0; i < res.articles.length; i++) {
         var article = res.articles[i];
         // konstruujemy kod html przy uzyciu jQuery ($ tutaj nie jest selektorem)
-        var card = $('<div class="card">' +
-                        '<img class="card-img-top image" src="" alt="news image">' +
+        var card = $('<div class="card mb-3">' +
+                        '<img class="card-img-top image" src="" alt="&nbsp;&nbsp;&nbsp;news image">' +
                         '<div class="card-body">' +
                             '<h5 class="card-title title"></h5>' +
                             '<p class="card-text description"></p>' +
