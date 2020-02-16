@@ -1,11 +1,12 @@
 $(document).ready(function () {
 
-    fetchNews("us");
+    var available_flags = [];
 
     //  define click events dynamically based on html list (flags) 
     $("#navFlagsList").find("li").each(function(idx, li) {
         var id= $(li).find('img').attr("id");
         var countryCode = id.substring(0, 2);
+        available_flags.push(countryCode);
         $("#" + id).click(function () {
             fetchNews(countryCode);
 
@@ -16,6 +17,24 @@ $(document).ready(function () {
             $('.tooltip').remove();         // removes tooltips after click
         });
       });
+
+    // use geo-location to fetch relevant news based on user location
+    $.ajax({
+        url: "https://ipinfo.io",
+        type: 'GET',
+        dataType: 'jsonp',
+        success: function (response) {
+            var country = response.country;
+            country = country.toLowerCase();
+            if(available_flags.indexOf(country) < 0) {
+                country = 'gb';
+            }
+            fetchNews(country);
+        },
+        error: function (xhr) {
+            fetchNews('gb');
+        }
+    });    
 
     // OLD VERSION (not dynamic, but human friendly)
     // $("#us_flag").click(function () {
