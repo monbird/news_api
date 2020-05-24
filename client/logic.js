@@ -60,7 +60,12 @@ function fetchNews(countryCode) {
     var isActive = $("#" + countryCode + "_flag").parent().hasClass('active');
     if(!isActive) {         // prevents ajax calls if class is already active
         $.ajax({
-            url: "https://newsapi.org/v2/top-headlines?country=" + countryCode + "&apiKey=1b8423915d9c4caa8c5d2913325d7f01",
+            type: "POST",
+            url: "http://localhost:3017/news-proxy",
+            data: {
+                url: "https://newsapi.org/v2/top-headlines?country=" + countryCode
+            },
+            dataType: "json",
             success: function (result) {
                 replaceContent(result, countryCode);
             },
@@ -111,13 +116,15 @@ function replaceContent(res, countryCode) {
 }
 
 function displayError(errorCode) {
-
-    var errorMessage = $('<div class="error">' +
-                            '<h1>' + errorCode + '</h1>' +
-                            '<h2>Internal server error</h2>' +
-                            '<p>Sorry we couldn\'t fetch your news at the moment.</p>' +
-                            '<p>Please try again later.</p>' +
-                        '</div>');
+    var errorElement = '<div class="error">';
+    if(errorCode) { // only show errorCode if we get a valid one (prevents from showing '0')
+        errorElement += '<h1>' + errorCode + '</h1>';
+    }
+    errorElement += '<h2>Internal server error</h2>' +
+        '<p>Sorry we couldn\'t fetch your news at the moment.</p>' +
+        '<p>Please try again later.</p>' +
+    '</div>';
+    var errorMessage = $(errorElement);
 
     $("#newsContainer").empty();    // clears news if present
     $("#mainContainer").append(errorMessage);
