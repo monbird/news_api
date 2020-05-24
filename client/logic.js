@@ -61,7 +61,7 @@ function fetchNews(countryCode) {
     if(!isActive) {         // prevents ajax calls if class is already active
         $.ajax({
             type: "POST",
-            url: "http://localhost:3017/news-proxy",
+            url: "http://monbird.com/news-api-proxy",
             data: {
                 url: "https://newsapi.org/v2/top-headlines?country=" + countryCode
             },
