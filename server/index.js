@@ -25,7 +25,7 @@ app.post('/news-proxy', (req, res) => {
             headers: {
                 'User-Agent': 'Monbird/1.0',
             },
-            url: url + '&apiKey=' + api_key,
+            url: url + '&apikey=' + api_key,
         },
         (error, response, body) => {
             if (error || response.statusCode !== 200) {
